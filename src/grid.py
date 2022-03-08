@@ -7,6 +7,12 @@ class Grid:
         self.grid = [[0 for i in range(cols)] for i in range(rows)]
 
 
+    def clear(self):
+        for i in range(len(self.grid)):
+            for j in range(len(self.grid[0])):
+                self.grid[i][j] = 0
+
+
     # spawns cell at row, col
     def fill_cell(self, row, col):
         self.grid[row][col] = 1

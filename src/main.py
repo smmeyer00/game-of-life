@@ -3,6 +3,7 @@ import time
 from grid import Grid 
 
 pygame.init()
+pygame.display.set_caption("Steven's Game of Life")
 
 # globals 
 size = width, height = 1200, 700
@@ -29,6 +30,9 @@ def run():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:    
                     started = not started  
+                if event.key == pygame.K_ESCAPE:
+                    grid.clear()
+                    started = False
 
         if pygame.mouse.get_pressed()[0] and not started:
             # fill cells 
@@ -36,6 +40,13 @@ def run():
             col = pos[0] // 10
             row = pos[1] // 10
             grid.fill_cell(row, col)
+
+        if pygame.mouse.get_pressed()[2] and not started:
+            # erase cells
+            pos = pygame.mouse.get_pos()
+            col = pos[0] // 10
+            row = pos[1] // 10
+            grid.delete_cell(row, col)
 
 
         screen.fill(grey)
