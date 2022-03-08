@@ -3,7 +3,7 @@ import time
 from grid import Grid 
 
 pygame.init()
-pygame.display.set_caption("Steven's Game of Life")
+pygame.display.set_caption("Game of Life")
 
 # globals 
 size = width, height = 1200, 700
